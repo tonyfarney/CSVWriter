@@ -1,0 +1,24 @@
+{
+    "name": "tonyfarney/csv-writer",
+    "type": "library",
+    "description": "Ease to use CSV Writer for PHP 7+",
+    "keywords": ["CSV","writer"],
+    "homepage": "https://github.com/tonyfarney/CSVWriter",
+    "authors": [
+        {
+            "name": "Tony Farney",
+            "email": "tonyfarney@gmail.com",
+            "homepage": "https://www.linkedin.com/in/tonyfarney/",
+            "role": "Developer"
+        }
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^7.0|^8.0"
+    },
+    "autoload": {
+        "psr-4" : {
+            "CSVWriter\\" : "src/"
+        }
+    }
+}
