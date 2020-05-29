@@ -6,7 +6,9 @@ In your project root, run the following composer command:
 
     $ composer require tonyfarney/csv-writer
 
-## Writing CSV File an Array of Data
+In order to use the encoding conversion implemented, you need to install the **mbstring** extension or a equivalent polyfill such as **symfony/polyfill-mbstring**.
+
+## Writing CSV File From an Array of Data
 CSVWriter generates CSV file from array of data containing the lines and columns.
 Examples:
 
@@ -33,7 +35,7 @@ Examples:
         
     // Gets de generated CSV from buffer
     $csv = $writer->getCSV();
-    var_dump($csv);
+    echo $csv."\n\n";
     
     // Changes the configuration and get new CSV from buffer
     $newCsv = $writer->setEnclosureRule(CSVWriter::ENCLOSURE_NONE)
@@ -42,12 +44,22 @@ Examples:
         ->setEncodings('UTF-8', 'ISO-8859-1') // Converts from UTF-8 to ISO-8859-1
         ->getCSV()
     ;
-    var_dump($newCsv);
+    echo $newCsv;
     
 
-var_dump($csv) output:
+echo $csv; output:
 
-var_dump($newCsv) output:
+    "name","role","age"
+    "Tony Farney","Developer","30"
+    "The Coffe Guy","Intern","18"
+    "Someone Else","Developer","26"
+
+echo $newCsv; output:
+
+    name;role;age
+    Tony Farney;Developer;30
+    The Coffe Guy;Intern;18
+    Someone Else;Developer;26
 
 ## Tips
 When writing to a file, it's possible save memory limiting the buffer size:

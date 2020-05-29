@@ -1,5 +1,5 @@
 <?php
-namespace App\Lib\CSVWriter;
+namespace CSVWriter;
 
 class CSVWriter {
 	const ENCLOSURE_NONE = 1;
@@ -137,7 +137,7 @@ class CSVWriter {
 	 * Output filename (including path)
 	 * @param string $val
 	 */
-	public function setFileName(?string $val): self {
+	public function setFileName(string $val = null): self {
 		$this->_fileName = $val;
 		return $this;
 	}
@@ -237,9 +237,9 @@ class CSVWriter {
 		$lines = [];
 		foreach ($this->_lines as $row) {
 			if ($this->_enclosureRule == self::ENCLOSURE_ALL) {
-				$lines[] = '"'.implode('"'.$this->_delimiter.'"', $row).'"';
+				$lines[] = '"'.implode('"'.$this->_columnDelimiter.'"', $row).'"';
 			} else { // self::ENCLOSURE_NONE
-				$lines[] = implode($this->_delimiter, $row);
+				$lines[] = implode($this->_columnDelimiter, $row);
 			}
 		}
 		

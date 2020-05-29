@@ -1,5 +1,5 @@
 <?php
-namespace App\Lib\CSVWriter;
+namespace CSVWriter;
 
 class CSVWriterException extends \ErrorException {
 	// All the possible error codes
